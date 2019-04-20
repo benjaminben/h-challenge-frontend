@@ -1,4 +1,25 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: pink;
-}
+  font-family: 'Open Sans', sans-serif; background-color: #eaeaea; }
+
+main {
+  max-width: 1200px; margin: 0 auto; display: grid; grid-gap: 1.33em;
+  grid-template-columns: repeat(auto-fill, 16em); grid-template-rows: minmax(300px, auto);
+  padding: 4em 0; justify-content: center; align-items: center; }
+
+.card {
+  border-radius: 3px; overflow: hidden; width: 100%; height: 100%;
+  box-shadow: 0px 5px 5px -5px rgba(0,0,0,0.5); transition: box-shadow 0.33s ease; }
+.card:hover { box-shadow: 0px 12px 12px -6px rgba(0,0,0,0.5); }
+.card img { width: 100%; height: 80%; object-fit: cover; display: block; }
+.card .sub {
+  display: flex; background-color: white; height: 20%; align-items: center;
+  justify-content: space-between; padding: 0 1.5em; font-size: 0.8em; }
+.card .desc { padding-right: 1em; color: #6f6f6f; }
+.card .heart { width: 1em; height: auto; margin: auto 0.33em auto 1em; }
+.card .stats {
+  position: relative; height: 100%; display: flex; align-items: center;
+  justify-content: center; color: #dadada; font-weight: 300; padding: 1.5em 0;
+  box-sizing: border-box; }
+.card .stats:before {
+  content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 50%;
+  background-color: #dadada; transform: translateY(-50%);  }
