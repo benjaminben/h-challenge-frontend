@@ -3,7 +3,7 @@ body {
 
 main {
   max-width: 1200px; margin: 0 auto; display: grid; grid-gap: 1.33em;
-  grid-template-columns: repeat(auto-fill, 16em); grid-template-rows: minmax(300px, auto);
+  grid-template-columns: repeat(auto-fill, 16em); grid-auto-rows: minmax(18em, auto);
   padding: 4em 0; justify-content: center; align-items: center; }
 
 .card {
@@ -15,11 +15,19 @@ main {
   display: flex; background-color: white; height: 20%; align-items: center;
   justify-content: space-between; padding: 0 1.5em; font-size: 0.8em; }
 .card .desc { padding-right: 1em; color: #6f6f6f; }
-.card .heart { width: 1em; height: auto; margin: auto 0.33em auto 1em; }
+.card .heart { width: 1em; height: auto; margin: auto 0.33em auto 1em; overflow: visible; }
+.card .heart path { transition: fill 0.1s ease; transform-origin: 16.5px 14px; }
 .card .stats {
   position: relative; height: 100%; display: flex; align-items: center;
   justify-content: center; color: #dadada; font-weight: 300; padding: 1.5em 0;
-  box-sizing: border-box; }
+  box-sizing: border-box; cursor: pointer; transition: color 0.1s ease; }
 .card .stats:before {
   content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 50%;
-  background-color: #dadada; transform: translateY(-50%);  }
+  background-color: #dadada; transform: translateY(-50%); }
+.card.liked .heart path { fill: #269db1; animation: heartbeat 0.2s ease; }
+.card.liked .stats { color: #269db1; }
+
+
+@keyframes heartbeat {
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); } }
